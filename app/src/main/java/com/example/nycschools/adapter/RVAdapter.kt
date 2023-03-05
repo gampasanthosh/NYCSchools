@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nycschools.databinding.ItemViewBinding
-import com.example.nycschools.models.schoolSatScores
+import com.example.nycschools.models.SchoolSatScores
 
 class RVAdapter(private val context: Context,
-                private val list : List<schoolSatScores>,
+                private val list : List<SchoolSatScores>,
                 private val itemClickedInterface: onItemClickedInterface) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
 
     inner class ViewHolder(var binding: ItemViewBinding): RecyclerView.ViewHolder(binding.root)
@@ -35,5 +35,5 @@ class RVAdapter(private val context: Context,
 }
 
 interface onItemClickedInterface{
-    fun onItemClick(listItems: schoolSatScores)
+    fun onItemClick(listItems: SchoolSatScores)
 }

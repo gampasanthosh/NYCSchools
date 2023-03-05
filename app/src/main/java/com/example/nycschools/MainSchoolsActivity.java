@@ -11,8 +11,8 @@ import com.example.nycschools.adapter.onItemClickedInterface;
 import com.example.nycschools.api.JsonAPI;
 import com.example.nycschools.api.RetroFitHelper;
 import com.example.nycschools.databinding.ActivityMainBinding;
-import com.example.nycschools.models.schoolSatScores;
-import com.example.nycschools.repository.jsonRepository;
+import com.example.nycschools.models.SchoolSatScores;
+import com.example.nycschools.repository.JsonRepository;
 import com.example.nycschools.viewmodels.MainViewModel;
 import com.example.nycschools.viewmodels.ViewModelProviderFactory;
 
@@ -38,7 +38,7 @@ public class MainSchoolsActivity extends AppCompatActivity implements onItemClic
         this.getSupportActionBar().setTitle("NYC Schools");
 
         JsonAPI jsonApi = (JsonAPI) RetroFitHelper.INSTANCE.getInstance().create(JsonAPI.class);
-        jsonRepository repository = new jsonRepository(jsonApi);
+        JsonRepository repository = new JsonRepository(jsonApi);
         mainViewModel = new ViewModelProvider(this, new ViewModelProviderFactory(repository)).get(MainViewModel.class);
 
         mainViewModel.getJsonDataSatScores().observe(this, list-> {
@@ -54,7 +54,7 @@ public class MainSchoolsActivity extends AppCompatActivity implements onItemClic
     }
 
     @Override
-    public void onItemClick(schoolSatScores listItem) {
+    public void onItemClick(SchoolSatScores listItem) {
         Log.d("ITEM CLICKED", listItem.getSchool_name());
         Intent intent = new Intent((Context)this, SatScoreDetailsActivity.class);
         intent.putExtra("name", listItem.getSchool_name());

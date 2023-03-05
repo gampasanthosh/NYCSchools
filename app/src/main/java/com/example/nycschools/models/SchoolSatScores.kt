@@ -1,6 +1,6 @@
 package com.example.nycschools.models
 
-data class schoolSatScores(
+data class SchoolSatScores(
     val dbn : String,
     val school_name : String,
     val num_of_sat_test_takers : String,
